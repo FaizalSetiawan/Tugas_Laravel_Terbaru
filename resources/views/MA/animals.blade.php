@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-            <h1>Selamat Datang Di Halaman 3</h1>
-            Nama = {{nama}}
-
+    <h2>Halaman Untuk Animals</h2>
 </body>
 </html>

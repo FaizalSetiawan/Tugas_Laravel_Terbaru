@@ -7,8 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Parameter</h1>
-    Nama = {{$nama2}}
+    <h1>Data Diri</h1>
+    Nama : {{$nama}} <br>
+    Jenis Kelamin : {{$jk}} <br>
+    Pendidikan Terakhir : {{$pendidikan_terakhir}} <br>
+    Pekerjaan : {{$pekerjaan}} <br>
 
 </body>
 </html>
