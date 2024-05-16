@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genre;
 use Illuminate\Http\Request;
+use App\Models\Genre;
 
 class GenreController extends Controller
 {
@@ -14,7 +14,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::orderBy('id', 'desc')->get();
+        return view('genre.index', compact('genres'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('genre.create');
     }
 
     /**
@@ -35,51 +36,75 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_genre' => 'required|max:255',
+            'judul' => 'required',
+        ]);
+
+        $genre = new Genre();
+        $genre->nama_genre = $request->nama_genre;
+        $genre->judul = $request->judul;
+        $genre->save();
+
+        return redirect()->route('genre.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)
+    public function show($id)
     {
-        //
+        $genre = Genre::findOrFail($id);
+        return view('genre.show', compact('genre'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Genre $genre)
-    {
-        //
-    }
-
+    public function edit($id)
+{
+    $genre = Genre::findOrFail($id);
+    return view('genre.edit', compact('genre'));
+}
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Genre  $genre
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genre $genre)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'nama_genre' => 'required|max:255',
+            'judul' => 'required',
+        ]);
+
+        $genre = Genre::findOrFail($id);
+        $genre->nama_genre = $request->nama_genre;
+        $genre->judul = $request->judul;
+        $genre->save();
+
+        return redirect()->route('genre.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genre $genre)
+    public function destroy($id)
     {
-        //
+        $genre = Genre::findOrFail($id);
+        $genre->delete();
+
+        return redirect()->route('genre.index')->with('success', 'Data berhasil dihapus');
     }
 }
