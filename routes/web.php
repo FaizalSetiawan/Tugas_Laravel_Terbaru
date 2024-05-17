@@ -12,9 +12,10 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PenulisController;
-
+use PHPUnit\TextUI\XmlConfiguration\Group;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +27,7 @@ use App\Http\Controllers\PenulisController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/halaman2', function () {
     return view('animals');
@@ -85,6 +84,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // route crud
+//Route Admin
+Route::group(['prefix'=>'admin','middleware' => ['auth']], function() {
 Route::resource('penulis', PenulisController::class);
 Route::resource('genre', GenreController::class);
 Route::resource('buku', BukuController::class);
+});
+
+//route Tamu
+
+Route::get('/',[FrontController::class,'buku']);
+Route::get('buku/{id}', [FrontController::class,'detailbuku']);

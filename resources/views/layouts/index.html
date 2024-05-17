@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web Pribadi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #f0ad4e;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #f0ad4e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #f0ad4e;
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Halo, Selamat Datang di Halaman Web Pribadi Saya!</h1>
+        </header>
+        <section>
+            <h2>Tentang Saya</h2>
+            <p>Saya adalah penggemar teknologi yang juga menyukai tantangan multitasking. Menjelajahi dunia digital dan
+                mengembangkan hal-hal baru adalah bagian dari passion saya.</p>
+        </section>
+        <section>
+            <h2>Keahlian</h2>
+            <p>Saya memiliki keahlian dalam pengembangan web, pemrograman, dan manajemen proyek. Saya percaya bahwa
+                teknologi dapat memudahkan hidup kita jika digunakan dengan bijak.</p>
+        </section>
+        <section>
+            <h2>Portofolio</h2>
+            <p>Saya telah bekerja pada berbagai proyek pengembangan web dan aplikasi. Berikut adalah beberapa contoh
+                proyek yang telah saya kerjakan:</p>
+            <ul>
+                <li><a href="{{ route('genre.index') }}">Proyek 1</a></li>
+                <li><a href="{{ route('penulis.index') }}">Proyek 2</a></li>
+                <li><a href="{{ route('buku.index') }}">Proyek 3</a></li>
+            </ul>
+        </section>
+        <footer>
+            <p>Terima kasih telah mengunjungi halaman web pribadi saya. Silakan hubungi saya melalui <a
+                    href="mailto:email@example.com">email@example.com</a> untuk informasi lebih lanjut.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

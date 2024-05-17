@@ -14,13 +14,16 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
-                                <tr>
+                            <table class="table" id="datatable">
+                                <thead>
+                                    <tr>
                                     <th>No</th>
                                     <th>Nama Genre</th>
                                     <th>Aksi</th>
                                 </tr>
-                                @php $no = 1; @endphp
+                                </thead>
+                               <tbody>
+                                 @php $no = 1; @endphp
                                 @foreach ($genres as $genre)
                                     <tr>
                                         <td>{{ $no++ }}</td>
@@ -46,6 +49,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                               </tbody>
                             </table>
                         </div>
                     </div>

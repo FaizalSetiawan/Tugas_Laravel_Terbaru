@@ -13,6 +13,7 @@ class Buku extends Model
         'id_penulis'];
     public $visible = ['judul', 'isbn', 'deskripsi', 'jml_halaman', 'cover', 'tgl_terbit',
         'id_penulis'];
+    public $timestamps = true;
 
     public function penulis()
     {
